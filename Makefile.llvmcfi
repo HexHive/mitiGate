@@ -1,0 +1,14 @@
+CFLAGS=-Wall -Wpedantic -Wextra -flto -O3 -g
+CFIFLAGS=-fsanitize=cfi -fvisibility=hidden
+
+OUT=test.llvmcfi
+OUT2=test.llvm
+
+.PHONY=all
+all: test.c
+	clang-4.0 ${CFLAGS} ${CFIFLAGS} -o ${OUT} test.c
+	clang-4.0 ${CFLAGS} -o ${OUT2} test.c
+
+.PHONY=clean
+clean:
+	rm -f test.llvm test.llvmcfi

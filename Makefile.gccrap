@@ -1,0 +1,26 @@
+CFIFLAGS=-fplugin=./rap_plugin.so
+#CFIFLAGS+=-DRAP_PLUGIN -fplugin-arg-rap_plugin-typecheck=call,ret 
+CFIFLAGS+=-DRAP_PLUGIN -fplugin-arg-rap_plugin-typecheck=call 
+CFIFLAGS+=-fplugin-arg-rap_plugin-hash=abs-finish 
+CFIFLAGS+=-fplugin-arg-rap_plugin-hash=abs-ops 
+CFIFLAGS+=-fplugin-arg-rap_plugin-hash=abs-attr
+CFIFLAGS+=-fplugin-arg-rap_plugin-report=func,fptr,abs
+CFIFLAGS+=-DX86_RAP_CALL_VECTOR=0x82
+CFIFLAGS+=-DX86_RAP_RET_VECTOR=0x83 
+CFIFLAGS+= '-fplugin-arg-rap_plugin-callabort=int $$0x82'
+CFIFLAGS+= '-fplugin-arg-rap_plugin-retabort=int $$0x83'
+CFIFLAGS+= -DRAP_PLUGIN
+
+CFLAGS=-Wall -Wpedantic -Wextra -O3
+
+OUT=test.gccrap
+OUT2=test.gcc
+
+.PHONY=all
+all:
+	gcc ${CFLAGS} ${CFIFLAGS} test.c -o ${OUT}
+	gcc ${CFLAGS} test.c -o ${OUT2}
+
+.PHONY=clean
+clean:
+	rm -f test.gccrap test.gcc

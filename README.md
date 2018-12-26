@@ -24,7 +24,7 @@ Compile the benchmark with `make -f Makefile.llvmcfi`. Run it with
 ## RAP
 
 See the [blog post]() on how to compile RAP or use the precompiled shared
-library.
+library. RAP restricts targets to functions of the same prototype.
 
 Compile the benchmark with `make -f Makefile.gccrap`. Run it with
 `./test.gccrap`.

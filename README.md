@@ -23,8 +23,9 @@ Compile the benchmark with `make -f Makefile.llvmcfi`. Run it with
 
 ## RAP
 
-See the [blog post](http://nebelwelt.net/blog/20181226-CFIeval.html) on how to compile RAP or use the precompiled shared
-library. RAP restricts targets to functions of the same prototype.
+See the [blog post](https://nebelwelt.net/blog/20181226-CFIeval.html) on how to
+compile RAP or use the precompiled shared library. RAP restricts targets to
+functions of the same prototype.
 
 Compile the benchmark with `make -f Makefile.gccrap`. Run it with
 `./test.gccrap`.

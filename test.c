@@ -497,11 +497,11 @@ __attribute__((noinline)) int quickfun(int a, int b) {
 void speedfun(int (*ptr)(int, int), int a, int b) {
   unsigned long lo, hi;
   unsigned long start, end;
-  __asm__ volatile ( "rdtsc" : "=a" (lo), "=d" (hi));
+  __asm__ volatile ( "lfence\nrdtsc" : "=a" (lo), "=d" (hi));
   start = lo | (hi << 32);
   for (unsigned long i =0; i < NRSPEED; i++)
     ptr(a, b);
-  __asm__ volatile ( "rdtsc" : "=a" (lo), "=d" (hi));
+  __asm__ volatile ( "lfence\nrdtsc" : "=a" (lo), "=d" (hi));
   end = lo | (hi << 32);
 
   double execs = ((double) (end - start)) / NRSPEED;

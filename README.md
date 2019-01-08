@@ -23,10 +23,17 @@ Compile the benchmark with `make -f Makefile.llvmcfi`. Run it with
 
 ## RAP
 
-See the [blog post](https://nebelwelt.net/blog/20181226-CFIeval.html) on how to
-compile RAP or use the precompiled shared library. RAP restricts targets to
+See the [note in the RAP directory](./RAP/README.md) on how to compile RAP or
+use the precompiled shared library for GCC 6.3.0. RAP restricts targets to
 functions of the same prototype.
 
 Compile the benchmark with `make -f Makefile.gccrap`. Run it with
 `./test.gccrap`.
+
+
+## Evaluation
+
+We have evaluated LLVM-CFI and RAP for C programs in a 
+[blog post](https://nebelwelt.net/blog/20181226-CFIeval.html) with some more
+details about the two CFI implementations.
 

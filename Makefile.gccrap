@@ -1,4 +1,4 @@
-CFIFLAGS=-fplugin=./rap_plugin.so
+CFIFLAGS=-fplugin=./RAP/rap_plugin.so
 #CFIFLAGS+=-DRAP_PLUGIN -fplugin-arg-rap_plugin-typecheck=call,ret 
 CFIFLAGS+=-DRAP_PLUGIN -fplugin-arg-rap_plugin-typecheck=call 
 CFIFLAGS+=-fplugin-arg-rap_plugin-hash=abs-finish 
